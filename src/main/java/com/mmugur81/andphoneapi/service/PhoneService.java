@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface PhoneService {
     List<Phone> listAll();
+
+    List<Phone> findByCustomerId(long customerId);
+
+    boolean activatePhone(long phoneId);
 }

@@ -2,7 +2,16 @@ package com.mmugur81.andphoneapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "phones")
@@ -22,7 +31,7 @@ public class Phone {
     private String number;
 
     @Column
-    private boolean active;
+    private boolean activated;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -61,11 +70,11 @@ public class Phone {
         this.customer = customer;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isActivated() {
+        return activated;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setActivated(boolean activated) {
+        this.activated = activated;
     }
 }

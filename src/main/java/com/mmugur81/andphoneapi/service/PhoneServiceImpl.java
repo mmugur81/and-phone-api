@@ -21,4 +21,23 @@ public class PhoneServiceImpl implements PhoneService {
     public List<Phone> listAll() {
         return repository.findAll();
     }
+
+    @Override
+    public List<Phone> findByCustomerId(long customerId) {
+        return repository.findByCustomerId(customerId);
+    }
+
+    @Override
+    public boolean activatePhone(long phoneId) {
+        Phone phone = repository.getOne(phoneId);
+
+        if (phone.isActivated()) {
+            return false;
+        }
+
+        phone.setActivated(true);
+        repository.save(phone);
+
+        return true;
+    }
 }

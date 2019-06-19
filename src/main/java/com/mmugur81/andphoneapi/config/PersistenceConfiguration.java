@@ -13,8 +13,12 @@ import javax.sql.DataSource;
 @Configuration
 public class PersistenceConfiguration {
 
+    private final Environment env;
+
     @Autowired
-    private Environment env;
+    public PersistenceConfiguration(Environment env) {
+        this.env = env;
+    }
 
     @Primary
     @Bean
