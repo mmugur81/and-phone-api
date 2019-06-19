@@ -33,6 +33,7 @@ public class PhoneController {
 
     @GetMapping("/customer/{customerId}/phones")
     public ResponseEntity<List<Phone>> listCustomerPhones(@PathVariable long customerId) {
+        // Normally would test for the existence of the customer
         return new ResponseEntity<>(phoneService.findByCustomerId(customerId), HttpStatus.OK);
     }
 

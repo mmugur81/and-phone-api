@@ -31,7 +31,7 @@ public class Phone {
     private String number;
 
     @Column
-    private boolean activated;
+    private boolean active;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -70,11 +70,11 @@ public class Phone {
         this.customer = customer;
     }
 
-    public boolean isActivated() {
-        return activated;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setActivated(boolean activated) {
-        this.activated = activated;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

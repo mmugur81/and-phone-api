@@ -31,11 +31,11 @@ public class PhoneServiceImpl implements PhoneService {
     public boolean activatePhone(long phoneId) {
         Phone phone = repository.getOne(phoneId);
 
-        if (phone.isActivated()) {
+        if (phone.isActive()) {
             return false;
         }
 
-        phone.setActivated(true);
+        phone.setActive(true);
         repository.save(phone);
 
         return true;
